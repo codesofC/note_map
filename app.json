@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "note_map",
+    "name": "noteMap",
     "slug": "note_map",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
+    "scheme": "note_map",
     "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/images/splash.png",
