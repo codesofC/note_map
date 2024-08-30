@@ -90,3 +90,5 @@ export const TABLES = [
       updatedAt: Date.now()
     }
   ];
+
+export const CARD_COLORS = ["#FFFF00", "#00FF00", "#0000FF", "#FF69B4"]

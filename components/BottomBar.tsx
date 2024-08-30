@@ -1,0 +1,37 @@
+import { TouchableOpacity, View } from "react-native";
+import CustomIcons from "./CustomIcons";
+import { useState } from "react";
+import AddNote from "./AddNote";
+
+
+const BottomBar = () => {
+
+  const [openNewNote, setOpenNewNote] = useState(false)
+    
+    return (<View className="mb-12 flex-row space-x-8 items-center">
+        <TouchableOpacity
+        activeOpacity={0.7}
+        className=" bg-yellow-500 p-4 rounded-full shadow-sm mb-6"
+        onPress={() => setOpenNewNote(true)}
+      >
+        <CustomIcons name="plus" size={25} color="black" />
+      </TouchableOpacity>
+      <TouchableOpacity
+        activeOpacity={0.7}
+        className=" bg-yellow-500 p-4 rounded-full shadow-sm mb-6"
+      >
+        <CustomIcons name="camera" size={25} color="black" />
+      </TouchableOpacity>
+      <TouchableOpacity
+        activeOpacity={0.7}
+        className=" bg-yellow-500 p-4 rounded-full shadow-sm mb-6"
+      >
+        <CustomIcons name="share" size={25} color="black" />
+      </TouchableOpacity>
+
+      {openNewNote && <AddNote handleModal={setOpenNewNote} />}
+
+    </View>)
+}
+
+export default BottomBar

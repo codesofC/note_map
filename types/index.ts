@@ -12,3 +12,9 @@ export interface TablesProps {
         };
     }[];
 }
+
+export interface CustomIconsProps {
+    name: string;
+    color?: string;
+    size?: number;
+}
