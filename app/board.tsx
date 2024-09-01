@@ -6,6 +6,7 @@ import { StatusBar } from "expo-status-bar";
 import CustomIcons from "@/components/CustomIcons";
 import BottomBar from "@/components/BottomBar";
 import { CARD_COLORS } from "@/constants";
+import NoteCard from "@/components/NoteCard";
 
 const Board = () => {
   const [pos, setPos] = useState({
@@ -22,7 +23,7 @@ const Board = () => {
   // }
 
   return (
-    <SafeAreaView className="flex-1 relative items-center">
+    <SafeAreaView className="flex-1 relative items-center" style={{backgroundColor: '#4a90e2'}}>
       <View className="w-full flex-row justify-between items-center p-4">
         <TouchableOpacity activeOpacity={0.6}>
           <CustomIcons name="chevron-left" size={24} />
@@ -38,34 +39,11 @@ const Board = () => {
       </View>
 
       <View className="relative flex-1 w-full">
-        <Draggable x={pos.x} y={pos.y}>
-          <View className="p-4 items-center justify-center bg-red-600 shadow-md min-w-[40px] max-w-[120px]">
-            <Text className="text-center"> Note 1</Text>
-          </View>
-        </Draggable>
-
-        <Draggable x={pos.x} y={pos.y}>
-          <View className="relative p-4 items-center justify-center shadow-md min-w-[40px] max-w-[120px]" style={{backgroundColor: CARD_COLORS[1]}}>
-            <View className="w-4 h-4 rounded-full bg-green-600 absolute -top-2 shadow-xl items-center justify-center" />
-            <Text className="text-center">
-              {" "}
-              Aprender Javascript{" "}
-            </Text>
-          </View>
-        </Draggable>
-        <Draggable x={pos.x} y={pos.y}>
-          <View className="p-4 items-center justify-center bg-pink-500 shadow-md min-w-[40px] max-w-[120px]">
-            <Text className="text-center"> Aprender Springboot </Text>
-          </View>
-        </Draggable>
-        <Draggable x={pos.x} y={pos.y}>
-          <View className="p-4 items-center justify-center shadow-md min-w-[40px] max-w-[120px]" style={{backgroundColor: CARD_COLORS[2]}}>
-            <Text className="text-center text-white">
-              {" "}
-              Acabar com o curso react-native
-            </Text>
-          </View>
-        </Draggable>
+        
+        <NoteCard position={pos} content="Aprender Springboot" color="#FF69B4" />
+        <NoteCard position={pos} content="Aprender Javascript" color="#00FF00" />
+        <NoteCard position={pos} content="Acabar com o curso react-native" color="#0000FF" />
+        <NoteCard position={pos} content="Note 1" color="#FFFF00" />
       </View>
 
       <BottomBar />
