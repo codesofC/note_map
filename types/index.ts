@@ -5,6 +5,7 @@ export interface NoteProps {
     y: number;
   };
   color: "#FFFF00" | "#00FF00" | "#0000FF" | "#FF69B4";
+  board_id: number
 }
 
 export interface TablesProps {
