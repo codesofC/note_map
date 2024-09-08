@@ -1,10 +1,17 @@
+
+export interface BoardProps {
+  id: number; 
+  name: string; 
+  color: string;
+}
 export interface NoteProps {
+  id: number;
   content: string;
   position: {
     x: number;
     y: number;
   };
-  color: "#FFFF00" | "#00FF00" | "#0000FF" | "#FF69B4";
+  color: string;
   board_id: number
 }
 

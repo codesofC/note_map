@@ -4,7 +4,7 @@ import { useState } from "react";
 import AddNote from "./AddNote";
 
 
-const BottomBar = () => {
+const BottomBar = ({boardId, refreshFn}: {boardId: number, refreshFn: () => Promise<void>}) => {
 
   const [openNewNote, setOpenNewNote] = useState(false)
     
@@ -35,7 +35,7 @@ const BottomBar = () => {
         <CustomIcons name="images" size={25} color="black" />
       </TouchableOpacity>
 
-      {openNewNote && <AddNote handleModal={setOpenNewNote} />}
+      {openNewNote && <AddNote handleModal={setOpenNewNote} boardId={boardId} refreshFn={refreshFn} />}
 
     </View>)
 }

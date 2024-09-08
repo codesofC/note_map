@@ -4,19 +4,37 @@ import {
   View,
   TextInput,
   Pressable,
+  Alert,
+  Text,
 } from "react-native";
 import CustomIcons from "./CustomIcons";
 import { CARD_COLORS } from "@/constants";
-import { useRef, useState } from "react";
+import { useState } from "react";
+import { addNote } from "@/database/sqlite";
 
 const AddNote = ({
   handleModal,
+  boardId,
+  refreshFn
 }: {
   handleModal: React.Dispatch<React.SetStateAction<boolean>>;
+  boardId: number,
+  refreshFn: () => Promise<void>
 }) => {
+  const [noteContent, setNoteContent] = useState("")
   const [currentColor, setCurrentColor] = useState(3);
 
-  const textContent = useRef()
+  const createNewNote = async () => {
+    await addNote({content: noteContent, board_id: boardId, color: CARD_COLORS[currentColor], position: {x: 120, y: 120}})
+    .then(() => {
+      refreshFn()
+      handleModal(false);
+    })
+    .catch(() => {
+      return Alert.alert("Erro", "A nota não foi criada devido a um problema no banco de dados!");
+    })
+  }
+
 
   return (
     <Modal animationType="slide">
@@ -30,9 +48,9 @@ const AddNote = ({
           </TouchableOpacity>
           <TouchableOpacity
             className="items-center justify-center"
-            onPress={() => handleModal(false)}
+            onPress={createNewNote}
           >
-            <CustomIcons name="plus" size={24} />
+            <Text> Adicionar </Text>
           </TouchableOpacity>
         </View>
         <View className="flex-1 w-full items-center space-y-12 justify-center">
@@ -41,6 +59,8 @@ const AddNote = ({
             style={{ backgroundColor: CARD_COLORS[currentColor] }}
           >
             <TextInput
+              value={noteContent}
+              onChangeText={setNoteContent}
               className="w-full h-full bg-transparent border-none text-center text-lg font-semibold p-2"
               placeholder="Escreve aqui..."
               placeholderTextColor={"gray"}

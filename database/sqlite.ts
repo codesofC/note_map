@@ -39,6 +39,12 @@ export const newBoard = async (name: string, color: string) => {
     return result;
 }
 
+export const updateBoardName = async (boardId: number, name: string) => {
+  const db = await openDatabase()
+
+  await db.runAsync('UPDATE boards SET name = ? WHERE id = ?', name, boardId)
+}
+
 export const addNote = async ({content, color, position, board_id}: NoteProps) => {
 
     const db = await openDatabase()
@@ -46,6 +52,12 @@ export const addNote = async ({content, color, position, board_id}: NoteProps) =
     const result = await db.runAsync('INSERT INTO notes (content, color, posx, posy, board_id) VALUES (?, ?, ?, ?, ?)', content, color, position.x, position.y, board_id);
 
     return result;
+}
+
+export const updatePositionNote = async (noteId: number, x: number, y: number) => {
+  const db = await openDatabase()
+
+  await db.runAsync('UPDATE notes SET posx = ?, posy = ? WHERE id = ?', x, y, noteId)
 }
 
 export const getAllNotes = async (boardId: number) => {
