@@ -1,9 +1,4 @@
 
-export interface BoardProps {
-  id: number; 
-  name: string; 
-  color: string;
-}
 export interface NoteProps {
   id: number;
   content: string;
@@ -14,6 +9,13 @@ export interface NoteProps {
   color: string;
   board_id: number
 }
+export interface BoardProps {
+  id: number; 
+  name: string; 
+  color: string;
+  notes?: NoteProps[]
+}
+
 
 export interface TablesProps {
   title: string;

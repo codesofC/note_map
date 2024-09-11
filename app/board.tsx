@@ -7,7 +7,7 @@ import BottomBar from "@/components/BottomBar";
 import { CARD_COLORS } from "@/constants";
 import NoteCard from "@/components/NoteCard";
 import { addNote, getAllNotes, updateBoardName, updatePositionNote } from "@/database/sqlite";
-import { useLocalSearchParams } from "expo-router";
+import { router, useLocalSearchParams } from "expo-router";
 import { NoteProps } from "@/types";
 import useSQLite from "@/database/useSQLite";
 
@@ -19,16 +19,13 @@ const Board = () => {
 
   const handleBoardName = async (value: string) => {
      await updateBoardName(Number(id), value)
-     .then(()=> {
-        console.log("Update");
-     })
   }
 
 
   return (
     <SafeAreaView className="flex-1 relative items-center" style={{backgroundColor: color as string}}>
       <View className="w-full flex-row justify-between items-center p-4">
-        <TouchableOpacity activeOpacity={0.6}>
+        <TouchableOpacity activeOpacity={0.6} onPress={() => router.replace('/')}>
           <CustomIcons name="chevron-left" size={24} />
         </TouchableOpacity>
         <View className="items-center justify-center">
@@ -48,8 +45,8 @@ const Board = () => {
       <View className="relative flex-1 w-full">
         
         
-        {notes.map((note) => (
-            <NoteCard content={note.content} color={note.color} position={{x: note.posx, y: note.posy}} key={note.id} id={note.id} />
+        {notes.map((note: NoteProps) => (
+            <NoteCard {...note} />
         ))}
       </View>
 

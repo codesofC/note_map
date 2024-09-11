@@ -26,12 +26,6 @@ const BottomBar = ({boardId, refreshFn}: {boardId: number, refreshFn: () => Prom
         activeOpacity={0.7}
         className=" bg-yellow-500 p-4 rounded-full shadow-sm"
       >
-        <CustomIcons name="share" size={25} color="black" />
-      </TouchableOpacity>
-      <TouchableOpacity
-        activeOpacity={0.7}
-        className=" bg-yellow-500 p-4 rounded-full shadow-sm"
-      >
         <CustomIcons name="images" size={25} color="black" />
       </TouchableOpacity>
 

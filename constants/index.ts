@@ -1,3 +1,5 @@
+import { Dimensions } from "react-native";
+
 export const TABLES = [
     {
       title: "Learn JavaScript",
@@ -92,3 +94,7 @@ export const TABLES = [
   ];
 
 export const CARD_COLORS = ["#FFFF00", "#00FF00", "#0000FF", "#FF69B4"]
+
+export const WIDTH_SCREEN = Dimensions.get("window").width;
+
+export const HEIGHT_SCREEN = Dimensions.get("window").height;
