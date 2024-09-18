@@ -1,12 +1,10 @@
-import { View, Text, TouchableOpacity, TextInput } from "react-native";
-import React, { useEffect, useState } from "react";
+import { View, TouchableOpacity, TextInput } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import CustomIcons from "@/components/CustomIcons";
 import BottomBar from "@/components/BottomBar";
-import { CARD_COLORS } from "@/constants";
 import NoteCard from "@/components/NoteCard";
-import { addNote, getAllNotes, updateBoardName, updatePositionNote } from "@/database/sqlite";
+import { getAllNotes, updateBoardName } from "@/database/sqlite";
 import { router, useLocalSearchParams } from "expo-router";
 import { NoteProps } from "@/types";
 import useSQLite from "@/database/useSQLite";
@@ -26,7 +24,7 @@ const Board = () => {
     <SafeAreaView className="flex-1 relative items-center" style={{backgroundColor: color as string}}>
       <View className="w-full flex-row justify-between items-center p-4">
         <TouchableOpacity activeOpacity={0.6} onPress={() => router.replace('/')}>
-          <CustomIcons name="chevron-left" size={24} />
+          <CustomIcons name="chevron-back-sharp" size={24} />
         </TouchableOpacity>
         <View className="items-center justify-center">
           <TextInput
@@ -42,7 +40,7 @@ const Board = () => {
         </View>
       </View>
 
-      <View className="relative flex-1 w-full">
+      <View className="relative flex-1 w-full border">
         
         
         {notes.map((note: NoteProps) => (

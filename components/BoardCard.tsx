@@ -6,7 +6,7 @@ import { HEIGHT_SCREEN, WIDTH_SCREEN } from "@/constants";
 const BoardCard = ({ notes, color }: { notes: NoteProps[], color: string }) => {
 
   return (
-    <View className="w-44 h-44 relative border border-gray-200 shadow-sm rounded-md overflow-hidden" style={{
+    <View className="w-44 h-44 relative border-[.2px] border-gray-300 rounded-sm overflow-hidden" style={{
         backgroundColor: color
     }}>
       {notes.map((note, index) => (
@@ -19,7 +19,7 @@ const BoardCard = ({ notes, color }: { notes: NoteProps[], color: string }) => {
           }}
           key={index}
         >
-          <Text className="text-center text-xs"> {note.content} </Text>
+          <Text className="text-center text-[5px]"> {note.content} </Text>
         </View>
       ))}
     </View>

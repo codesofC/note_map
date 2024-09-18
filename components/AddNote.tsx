@@ -44,7 +44,7 @@ const AddNote = ({
             className="items-center justify-center"
             onPress={() => handleModal(false)}
           >
-            <CustomIcons name="check" size={24} />
+            <CustomIcons name="close" size={24} />
           </TouchableOpacity>
           <TouchableOpacity
             className="items-center justify-center"
@@ -71,8 +71,8 @@ const AddNote = ({
             {CARD_COLORS.map((color, index) => (
               <Pressable
                 key={index}
-                className={`w-12 h-16 rotate-45 shadow-sm ${
-                  index === currentColor && 'border-2 border-red-600 z-10 shadow-md'
+                className={`w-10 h-10 ${
+                  index === currentColor && 'z-10 shadow-lg'
                 }`}
                 style={{ backgroundColor: color }}
                 onPress={() => setCurrentColor(index)}

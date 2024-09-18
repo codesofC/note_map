@@ -7,9 +7,15 @@ import Draggable from "react-native-draggable";
 
 const NoteCard = ({id, position, content, color}: NoteProps) => {
 
-  const handlePosition = async (e: GestureResponderEvent, gestureState: PanResponderGestureState) => {
-    await updatePositionNote(id, Number(gestureState.moveX.toFixed(2)), Number(gestureState.moveY.toFixed(2)))
+  const handlePosition = (e: GestureResponderEvent, gestureState: PanResponderGestureState) => {
+    if(id){
+      updatePositionNote(id, Number(gestureState.moveX.toFixed(2)), Number(gestureState.moveY.toFixed(2)))
+      console.log(gestureState);
+    }
+
   }
+
+  console.log(position);
 
   return (
     <Draggable x={position.x} y={position.y} onDragRelease={handlePosition}>

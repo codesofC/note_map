@@ -14,7 +14,7 @@ const BottomBar = ({boardId, refreshFn}: {boardId: number, refreshFn: () => Prom
         className=" bg-yellow-500 p-4 rounded-full shadow-sm"
         onPress={() => setOpenNewNote(true)}
       >
-        <CustomIcons name="plus" size={25} color="black" />
+        <CustomIcons name="add" size={25} color="black" />
       </TouchableOpacity>
       <TouchableOpacity
         activeOpacity={0.7}

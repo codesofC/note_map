@@ -1,6 +1,6 @@
 
 export interface NoteProps {
-  id: number;
+  id?: number;
   content: string;
   position: {
     x: number;
