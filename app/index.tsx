@@ -85,7 +85,7 @@ export default function Index() {
       className="flex-1 flex-col space-y-2 items-center mb-4"
     >
       <BoardCard notes={item.notes || []} color={item.color} />
-      <Text className="font-bold text-lg"> {item.name} </Text>
+      <Text className="font-bold"> {item.name} </Text>
     </Pressable>
   );
 

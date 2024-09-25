@@ -40,11 +40,11 @@ const Board = () => {
         </View>
       </View>
 
-      <View className="relative flex-1 w-full border">
+      <View className="relative flex-1 w-full">
         
         
         {notes.map((note: NoteProps) => (
-            <NoteCard {...note} />
+            <NoteCard {...note} key={note.id} />
         ))}
       </View>
 
